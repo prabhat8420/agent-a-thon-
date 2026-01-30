@@ -1,4 +1,12 @@
+function setWorkflow(agent){
+  ["planner","executor","evaluator"].forEach(a=>{
+    document.getElementById("wf-"+a)?.classList.remove("active");
+  });
+  document.getElementById("wf-"+agent)?.classList.add("active");
+}
+
 // Application State
+
 let appState = {
     resumeScore: 0,
     detectedSkills: [],
@@ -150,6 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Analyze Resume
 function analyzeResume() {
+    setWorkflow("planner");
+
     navigateTo('report-page');
     
     // Show loading animation
@@ -300,6 +310,8 @@ function submitAptitude() {
     appState.aptitudeScore = Math.floor((correctAnswers / questions.length) * 100);
     
     // Show executor loading
+    setWorkflow("executor");
+
     navigateTo('executor-loading-page');
     
     // Simulate evaluation
@@ -311,6 +323,8 @@ function submitAptitude() {
 
 // Generate Results
 function generateResults() {
+    setWorkflow("evaluator");
+
     // Update aptitude score
     document.getElementById('aptitude-score').textContent = appState.aptitudeScore;
     
