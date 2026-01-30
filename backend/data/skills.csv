@@ -1,0 +1,53 @@
+skill,category,importance,demand_level
+Python,Programming,High,Very High
+Java,Programming,High,High
+JavaScript,Programming,High,Very High
+React,Frontend,High,Very High
+Node.js,Backend,Medium,High
+Django,Backend,Medium,High
+Spring Boot,Backend,High,High
+Data Structures,Fundamentals,Very High,Very High
+Algorithms,Fundamentals,Very High,Very High
+System Design,Architecture,Very High,Very High
+Microservices,Architecture,High,Very High
+Docker,DevOps,High,Very High
+Kubernetes,DevOps,High,High
+AWS,Cloud,High,Very High
+Azure,Cloud,High,High
+GCP,Cloud,Medium,High
+SQL,Database,High,Very High
+NoSQL,Database,Medium,High
+MongoDB,Database,Medium,High
+PostgreSQL,Database,High,High
+Redis,Cache,Medium,High
+REST API,Backend,Very High,Very High
+GraphQL,Backend,Medium,High
+Git,Version Control,Very High,Very High
+CI/CD,DevOps,High,Very High
+Testing,Quality,High,High
+Unit Testing,Quality,High,High
+Integration Testing,Quality,Medium,High
+Communication,Soft Skills,Very High,Very High
+Problem Solving,Soft Skills,Very High,Very High
+Teamwork,Soft Skills,High,High
+Leadership,Soft Skills,Medium,High
+Agile,Methodology,High,High
+Scrum,Methodology,Medium,High
+TypeScript,Programming,Medium,High
+Angular,Frontend,Medium,Medium
+Vue.js,Frontend,Medium,Medium
+Machine Learning,AI/ML,Medium,High
+Deep Learning,AI/ML,Medium,Medium
+TensorFlow,AI/ML,Low,Medium
+PyTorch,AI/ML,Low,Medium
+Security,Security,High,Very High
+OAuth,Security,Medium,High
+JWT,Security,High,High
+Web Security,Security,High,High
+Performance Optimization,Performance,High,High
+Scalability,Architecture,Very High,Very High
+Load Balancing,Infrastructure,Medium,High
+Message Queues,Architecture,Medium,High
+Kafka,Streaming,Low,Medium
+RabbitMQ,Messaging,Low,Medium
+Elasticsearch,Search,Low,Medium

@@ -1,0 +1,95 @@
+{
+  "roles": [
+    {
+      "title": "Backend Engineer",
+      "required_skills": [
+        "Python",
+        "Java",
+        "REST API",
+        "SQL",
+        "System Design",
+        "Microservices",
+        "Docker"
+      ],
+      "nice_to_have": [
+        "AWS",
+        "Kubernetes",
+        "NoSQL",
+        "Message Queues"
+      ],
+      "experience_level": "entry-mid"
+    },
+    {
+      "title": "Frontend Engineer",
+      "required_skills": [
+        "JavaScript",
+        "React",
+        "HTML/CSS",
+        "REST API",
+        "Git"
+      ],
+      "nice_to_have": [
+        "TypeScript",
+        "Testing",
+        "Performance Optimization",
+        "Web Security"
+      ],
+      "experience_level": "entry-mid"
+    },
+    {
+      "title": "Full Stack Engineer",
+      "required_skills": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "SQL",
+        "REST API",
+        "Git",
+        "System Design"
+      ],
+      "nice_to_have": [
+        "Docker",
+        "AWS",
+        "TypeScript",
+        "Testing",
+        "CI/CD"
+      ],
+      "experience_level": "mid"
+    },
+    {
+      "title": "DevOps Engineer",
+      "required_skills": [
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "AWS",
+        "Git",
+        "System Design"
+      ],
+      "nice_to_have": [
+        "Terraform",
+        "Monitoring",
+        "Security",
+        "Load Balancing"
+      ],
+      "experience_level": "mid-senior"
+    },
+    {
+      "title": "Data Engineer",
+      "required_skills": [
+        "Python",
+        "SQL",
+        "Data Structures",
+        "Algorithms",
+        "ETL"
+      ],
+      "nice_to_have": [
+        "Kafka",
+        "Spark",
+        "AWS",
+        "NoSQL"
+      ],
+      "experience_level": "entry-mid"
+    }
+  ]
+}
