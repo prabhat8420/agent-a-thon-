@@ -40,18 +40,32 @@ body {
     );
 }
 
-.container {
+/* .container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
+} */
+ .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
 }
 
+
 /* Page Navigation */
-.page {
+/* .page {
     display: none;
     min-height: 100vh;
     animation: fadeIn 0.5s ease-in-out;
+} */
+.page {
+    display: none;
+    min-height: 100vh;
+    width: 100vw;
+    animation: fadeIn 0.5s ease-in-out;
+    padding-top: 80px; /* space for workflow bar */
 }
+
 
 .page.active {
     display: block;
@@ -233,13 +247,26 @@ body {
 }
 
 /* Cards */
-.card {
+/* .card {
     background: var(--card-bg);
     padding: 3rem;
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
     margin-bottom: 2rem;
+} */
+ .card {
+    background: var(--card-bg);
+    min-height: calc(100vh - 140px);
+    width: 100%;
+    padding: 4rem 6rem;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 
 .card h2 {
     font-size: 2rem;
@@ -312,13 +339,23 @@ body {
 }
 
 /* Loading Animation */
-.loading-card {
+/* .loading-card {
     background: var(--card-bg);
     padding: 4rem;
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
     text-align: center;
+} */
+ .loading-card {
+    background: var(--card-bg);
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    box-shadow: none;
 }
+
 
 .agent-working {
     display: flex;
@@ -563,13 +600,22 @@ body {
 }
 
 /* Roadmap */
-.roadmap-card {
+/* .roadmap-card {
     background: var(--card-bg);
     padding: 3rem;
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
     margin: 2rem 0;
+} */
+ .roadmap-card {
+    background: var(--card-bg);
+    min-height: 100vh;
+    padding: 4rem 6rem;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
 }
+
 
 .roadmap-card h2 {
     font-size: 2rem;
@@ -805,3 +851,10 @@ body {
   height: 2px;
   background: #444;
 }
+.page .container {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
