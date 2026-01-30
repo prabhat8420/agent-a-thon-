@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI Career Bridge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing-page" class="page active">
+        <div class="container">
+            <div class="hero">
+                <h1 class="main-title">Agentic AI Career Bridge</h1>
+                <p class="subtitle">Bridging Academic Learning with Industry Expectations using Multi-Agent AI</p>
+                <div class="agent-indicators">
+                    <div class="agent-badge">
+                        <span class="agent-icon">🤖</span>
+                        <span>Planner Agent</span>
+                    </div>
+                    <div class="agent-badge">
+                        <span class="agent-icon">⚡</span>
+                        <span>Executor Agent</span>
+                    </div>
+                    <div class="agent-badge">
+                        <span class="agent-icon">📊</span>
+                        <span>Evaluator Agent</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="navigateTo('resume-page')">Start Assessment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Upload Page -->
+    <div id="resume-page" class="page">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-step active">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Resume</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Aptitude</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Results</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Upload Your Resume</h2>
+                <p class="card-subtitle">Let our AI agents analyze your skills and experience</p>
+                
+                <div class="upload-area" id="upload-area">
+                    <input type="file" id="resume-upload" accept=".pdf" hidden>
+                    <label for="resume-upload" class="upload-label">
+                        <div class="upload-icon">📄</div>
+                        <div class="upload-text">Click to upload or drag and drop</div>
+                        <div class="upload-subtext">PDF files only</div>
+                    </label>
+                </div>
+
+                <div id="file-info" class="file-info hidden">
+                    <div class="file-name">
+                        <span class="file-icon">📎</span>
+                        <span id="file-name-text"></span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" id="analyze-btn" onclick="analyzeResume()" disabled>Analyze Resume</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pre-Aptitude Report Page -->
+    <div id="report-page" class="page">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-step completed">
+                    <div class="step-circle">✓</div>
+                    <div class="step-label">Resume</div>
+                </div>
+                <div class="progress-line active"></div>
+                <div class="progress-step active">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Aptitude</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Results</div>
+                </div>
+            </div>
+
+            <!-- Loading Animation -->
+            <div id="planner-loading" class="loading-card">
+                <div class="agent-working">
+                    <div class="spinner"></div>
+                    <div class="agent-status">
+                        <span class="agent-icon large">🤖</span>
+                        <h3>Planner Agent Working...</h3>
+                        <p>Analyzing your resume and identifying skills</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-Aptitude Report -->
+            <div id="pre-report" class="hidden">
+                <div class="agent-header">
+                    <span class="agent-icon">🤖</span>
+                    <span>Planner Agent</span>
+                    <span class="status-badge">✓ Complete</span>
+                </div>
+
+                <h2>Pre-Aptitude Assessment Report</h2>
+
+                <div class="report-grid">
+                    <div class="report-card">
+                        <div class="report-score">
+                            <div class="score-circle">
+                                <span id="resume-score">75</span>
+                                <span class="score-label">/100</span>
+                            </div>
+                            <h3>Resume Score</h3>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <h3>Detected Skills</h3>
+                        <div class="skills-list" id="detected-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Data Structures</span>
+                            <span class="skill-tag">Algorithms</span>
+                        </div>
+                    </div>
+
+                    <div class="report-card warning">
+                        <h3>Missing Skills</h3>
+                        <div class="skills-list" id="missing-skills">
+                            <span class="skill-tag missing">System Design</span>
+                            <span class="skill-tag missing">Real-world Projects</span>
+                            <span class="skill-tag missing">Communication</span>
+                            <span class="skill-tag missing">Cloud Technologies</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="navigateTo('aptitude-page')">Start Aptitude Test</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aptitude Test Page -->
+    <div id="aptitude-page" class="page">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-step completed">
+                    <div class="step-circle">✓</div>
+                    <div class="step-label">Resume</div>
+                </div>
+                <div class="progress-line completed"></div>
+                <div class="progress-step active">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Aptitude</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Results</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="test-header">
+                    <h2>Industry-Level Aptitude Test</h2>
+                    <div class="timer" id="timer">
+                        <span class="timer-icon">⏱️</span>
+                        <span id="time-display">10:00</span>
+                    </div>
+                </div>
+
+                <div id="questions-container"></div>
+
+                <button class="btn btn-primary" onclick="submitAptitude()">Submit Test</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Executor Loading Page -->
+    <div id="executor-loading-page" class="page">
+        <div class="container">
+            <div class="loading-card">
+                <div class="agent-working">
+                    <div class="spinner"></div>
+                    <div class="agent-status">
+                        <span class="agent-icon large">⚡</span>
+                        <h3>Executor Agent Evaluating...</h3>
+                        <p>Processing your responses and calculating scores</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Page -->
+    <div id="results-page" class="page">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-step completed">
+                    <div class="step-circle">✓</div>
+                    <div class="step-label">Resume</div>
+                </div>
+                <div class="progress-line completed"></div>
+                <div class="progress-step completed">
+                    <div class="step-circle">✓</div>
+                    <div class="step-label">Aptitude</div>
+                </div>
+                <div class="progress-line completed"></div>
+                <div class="progress-step active">
+                    <div class="step-circle">✓</div>
+                    <div class="step-label">Results</div>
+                </div>
+            </div>
+
+            <div class="agent-header">
+                <span class="agent-icon">📊</span>
+                <span>Evaluator Agent</span>
+                <span class="status-badge">✓ Complete</span>
+            </div>
+
+            <h2>Post-Aptitude Assessment Report</h2>
+
+            <div class="report-grid">
+                <div class="report-card">
+                    <div class="report-score">
+                        <div class="score-circle">
+                            <span id="aptitude-score">72</span>
+                            <span class="score-label">/100</span>
+                        </div>
+                        <h3>Aptitude Score</h3>
+                    </div>
+                </div>
+
+                <div class="report-card success">
+                    <h3>Strengths</h3>
+                    <ul class="report-list" id="strengths-list">
+                        <li>Strong algorithmic thinking</li>
+                        <li>Good problem-solving approach</li>
+                        <li>Solid programming fundamentals</li>
+                    </ul>
+                </div>
+
+                <div class="report-card warning">
+                    <h3>Areas to Improve</h3>
+                    <ul class="report-list" id="weak-areas-list">
+                        <li>System design concepts</li>
+                        <li>Database optimization</li>
+                        <li>API design patterns</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="roadmap-card">
+                <h2>Personalized Career Roadmap</h2>
+                <div class="evaluator-summary">
+                    <p><strong>Evaluator Agent Summary:</strong> Based on your resume and aptitude test performance, here is your personalized career roadmap to bridge the gap between academic learning and industry expectations.</p>
+                </div>
+
+                <div class="roadmap-timeline">
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">1</div>
+                        <div class="roadmap-content">
+                            <h3>Master System Design Fundamentals</h3>
+                            <p>Study scalability, microservices, and distributed systems</p>
+                            <span class="duration">Duration: 4-6 weeks</span>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">2</div>
+                        <div class="roadmap-content">
+                            <h3>Learn Cloud Technologies</h3>
+                            <p>Get hands-on with AWS/Azure, Docker, and Kubernetes</p>
+                            <span class="duration">Duration: 6-8 weeks</span>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">3</div>
+                        <div class="roadmap-content">
+                            <h3>Build Real-World Projects</h3>
+                            <p>Create a full-stack e-commerce platform with microservices architecture</p>
+                            <span class="duration">Duration: 8-10 weeks</span>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">4</div>
+                        <div class="roadmap-content">
+                            <h3>Develop Communication Skills</h3>
+                            <p>Practice technical presentations and participate in mock interviews</p>
+                            <span class="duration">Duration: Ongoing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommended-resources">
+                    <h3>Recommended Learning Path</h3>
+                    <ul>
+                        <li>📚 Designing Data-Intensive Applications by Martin Kleppmann</li>
+                        <li>🎓 System Design Interview Course</li>
+                        <li>💻 Cloud Practitioner Certification</li>
+                        <li>🚀 Contribute to Open Source Projects</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-secondary" onclick="downloadReport()">Download Report</button>
+                <button class="btn btn-primary" onclick="location.reload()">Start New Assessment</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
